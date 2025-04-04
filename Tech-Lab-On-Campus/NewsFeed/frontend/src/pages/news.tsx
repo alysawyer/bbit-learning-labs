@@ -61,12 +61,26 @@ export default function News() {
             // 2. Fetch the news feed data from '/api/news/get-newsfeed'
             // 3. Use the `set` functions defined above to update the `articles` and `featuredArticle` variables
 
-            // const response = await fetch(
-            //     '/api/news/get-featured-article'
-            // );
-            // const data = await response.json();
-            // console.log(data);
-            // setFeaturedArticle(data);
+            fetch('/api/news/get-featured-article')
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    setFeaturedArticle(data);
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                });
+
+            fetch('/api/news/get-newsfeed')
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    setArticles(data);
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                });
+
 
             // Once completing you should be able to see news articles different from the dummy data originally provided.
             
