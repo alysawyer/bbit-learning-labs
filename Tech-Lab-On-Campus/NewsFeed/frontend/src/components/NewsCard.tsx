@@ -22,12 +22,18 @@ function NewsCard({ article }: NewsCardProps) {
     // Hint: Some classes in `globals.css` could help with styling
 
     return (
-        <div className="news-card">
-            <div className="news-info">
-                {/* TODO: Remove the span below and implement a reusable NewsCard */}
-                <span className='instruction'>Part 2: Build Reusable News Card</span>
+        <>
+            <div className="news-card">
+            <span className='story-title'>{article.title}</span>
+            <br />
+            <p className='story-summary'>{article.body}</p>
+            <br />
+            <img
+                className='news-img'
+                src={article.image_url}
+            />
             </div>
-        </div>
+        </>
     );
 }
 
